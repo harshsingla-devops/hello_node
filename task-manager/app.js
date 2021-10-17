@@ -5,13 +5,11 @@ const app = express();
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
 
+//middleware
+app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 
 //routes
-app.get("/hello", (req, res) => {
-  res.send("Task Manager App!");
-});
-
 //get all items
 app.use("/api/v1/tasks", tasks);
 
