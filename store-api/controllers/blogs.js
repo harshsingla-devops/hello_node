@@ -8,4 +8,10 @@ const createPost = async (req, res) => {
   const post = await Blog.create(req.body);
   res.status(201).json(post);
 };
-module.exports = { getAllPosts, createPost };
+const deletePosts = async (req, res) => {
+  //const { id: Id } = req.params;
+  const post = await Blog.deleteMany({});
+  res.status(200).json(post);
+};
+
+module.exports = { getAllPosts, createPost, deletePosts };
